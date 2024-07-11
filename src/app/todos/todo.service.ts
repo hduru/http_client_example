@@ -10,8 +10,8 @@ import { BaseService } from '../infrastructure/base.service';
 })
 export class TodoService extends BaseService {
 
-  constructor(httpClient: HttpClient) {
-    super(httpClient);
+  constructor() {
+    super();
   }
 
   //Observable bir yayın açıyor.

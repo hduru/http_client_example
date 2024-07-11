@@ -1,11 +1,15 @@
 import { HttpClient } from '@angular/common/http';
+import { AppConfig } from './app-config';
+import { inject } from '@angular/core';
 
 export abstract class BaseService {
 
   httpClient: HttpClient;
+  appConfig: AppConfig;
 
-  constructor(httpClient: HttpClient) {
-    this.httpClient = httpClient;
+  constructor() {
+    this.httpClient = inject(HttpClient);
+    this.appConfig = inject(AppConfig);
   }
 
 }

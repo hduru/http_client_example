@@ -1,0 +1,36 @@
+<div class="centered-form">
+    <div class="form-container">
+      <h1 class="form-title">Sign In</h1>
+      <form [formGroup]="formGroup">
+        <div class="form-group row mb-3">
+          <label class="col-sm-4 col-form-label" for="username">Username :</label>
+          <div class="col-sm-8">
+            <input pInputText id="username" type="text" class="form-control" formControlName="kullaniciAdi" />
+          </div>
+        </div>
+        <div class="form-group row mb-3">
+          <label class="col-sm-4 col-form-label" for="password">Password :</label>
+          <div class="col-sm-8">
+            <input pInputText id="password" type="password" class="form-control" formControlName="sifre" />
+          </div>
+        </div>
+        <div class="form-group row mt-4">
+          <div class="col-sm-12 text-center">
+            <button type="submit" class="btn btn-primary login-button" (click)="onSubmit(formGroup.value)" [disabled]="loading">
+              <span *ngIf="!loading">Login</span>
+              <span *ngIf="loading" class="spinner-border spinner-border-sm" role="status" aria-hidden="true"></span>
+            </button>
+          </div>
+        </div>
+      </form>
+      <div class="divider">
+        <span>or</span>
+      </div>
+      <div class="form-group row mt-4">
+        <div class="col-sm-12 text-center">
+          <button type="button" class="btn btn-outline-secondary signup-button">Sign Up</button>
+        </div>
+      </div>
+    </div>
+  </div>
+  
