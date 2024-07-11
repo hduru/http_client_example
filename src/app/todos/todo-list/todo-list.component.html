@@ -1,0 +1,33 @@
+<div style="padding: 2rem;">
+    <h1>Todos</h1>
+    <br />
+    <p-table [columns]="cols" [value]="todos" [tableStyle]="{ 'min-width': '30rem', 'max-height': '400px', 'overflow': 'auto' }">
+        <ng-template pTemplate="header" let-columns>
+            <tr>
+                <th *ngFor="let col of columns" [ngClass]="{'title-column': col.field === 'title', 'center-column': col.field !== 'title'}">
+                    {{ col.header }}
+                </th>
+            </tr>
+        </ng-template>
+        <ng-template pTemplate="body" let-rowData let-columns="columns">
+            <tr>
+                <td *ngFor="let col of columns" [ngClass]="{'title-column': col.field === 'title', 'center-column': col.field !== 'title'}">
+                    <ng-container *ngIf="col.field === 'completed'; else otherFields">
+                        <i *ngIf="rowData[col.field]; else notCompletedIcon"
+                            class="pi pi-check"
+                            style="font-weight: bold; color: green; font-size: large;">
+                        </i>
+                        <ng-template #notCompletedIcon>
+                            <i class="pi pi-times"
+                                style="font-weight: bold; color: red; font-size: large;">
+                            </i>
+                        </ng-template>
+                    </ng-container>
+                    <ng-template #otherFields>
+                        <span>{{ rowData[col.field] }}</span>
+                    </ng-template>
+                </td>
+            </tr>
+        </ng-template>
+    </p-table>
+</div>

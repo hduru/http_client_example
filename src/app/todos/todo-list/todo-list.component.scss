@@ -1,0 +1,18 @@
+p-table {
+    display: block;
+    overflow-y: auto;
+    max-height: 62rem;
+}
+
+p-table table {
+    width: 100%;
+    table-layout: fixed;
+}
+
+p-table th.center-column, p-table td.center-column {
+    text-align: center;
+}
+
+p-table th.title-column, p-table td.title-column {
+    text-align: left;
+}
