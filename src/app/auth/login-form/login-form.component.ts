@@ -8,16 +8,20 @@ import { LoginDto } from './models/loginDto.model';
 import { AuthService } from '../auth.service';
 import { Router } from '@angular/router';
 import { CommonModule } from '@angular/common';
+import { ToastModule } from 'primeng/toast';
+import { MessageService } from 'primeng/api';
 
 @Component({
   selector: 'app-login-form',
   standalone: true,
-  imports: [ButtonModule, DividerModule, InputTextModule, ReactiveFormsModule, CommonModule],
+  imports: [ButtonModule, DividerModule, InputTextModule, ReactiveFormsModule, CommonModule, ToastModule],
   templateUrl: './login-form.component.html',
-  styleUrl: './login-form.component.scss'
+  styleUrl: './login-form.component.scss',
+  providers: [MessageService]
 })
 export class LoginFormComponent extends BaseFormComponent implements OnInit {
 
+  _messageService: MessageService;
   _authService: AuthService;
   _router: Router;
 
@@ -27,6 +31,7 @@ export class LoginFormComponent extends BaseFormComponent implements OnInit {
   constructor() {
     super();
 
+    this._messageService = inject(MessageService);
     this._authService = inject(AuthService);
     this._router = inject(Router);
 
@@ -60,9 +65,8 @@ export class LoginFormComponent extends BaseFormComponent implements OnInit {
           this._router.navigate(['/todos/list']);
         }
       })
-
     } else {
-      console.log("Form is not valid!")
+      this._messageService.add({ severity: 'error', summary: 'Error', detail: 'Please fill out the required fields!' });
     }
 
   }
