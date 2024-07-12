@@ -1,15 +1,21 @@
-# HttpClientExample
 
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 17.3.8.
+# http_client_example
 
-## Development server
+This is a simple HttpClient example written with Angular 17.3.8. The example uses structures such as guard, interceptor, router, environments, and reactive forms. A simple login form and a to-do list example after page navigation have been implemented. Don't forget to start your backend application to be able to log in.
 
-Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The application will automatically reload if you change any of the source files.
+#### Install this project
+1) `https://github.com/hduru/http_client_example.git`
+2) `cd form_structure_example`
+3) `npm install`
+4) `ng serve`
 
-## Code scaffolding
+Then open http://localhost:4200/ to see example.
 
-Run `ng generate component component-name` to generate a new component. You can also use `ng generate directive|pipe|service|class|guard|interface|enum|module`.
+> Before pulling the project, make sure to install Angular CLI from [https://www.npmjs.com/package/@angular/cli](https://www.npmjs.com/package/@angular/cli).
 
-## Build
+#### Dependency
+* [PrimeNG](https://primeng.org/)
+* [Bootstrap](https://getbootstrap.com/)
 
-Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory.
+#### Reference
+* [Angular 17](https://v17.angular.io/docs)
